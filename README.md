@@ -1,4 +1,4 @@
-# Awesome Project Build with TypeORM
+# Soft Alliance Assesssment
 
 Steps to run this project:
 
