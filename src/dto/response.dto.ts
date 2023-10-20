@@ -1,0 +1,1 @@
+export type GenericResponse = { status: boolean, message: string, statusCode: number };

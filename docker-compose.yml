@@ -1,0 +1,26 @@
+version: "3"
+services:
+  movies_db:
+    container_name: "movies_db"
+    image: "mysql:8.0.30"
+    ports:
+      - "3303:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "password"
+      MYSQL_DATABASE: "movies_db"
+  movies_db_admin:
+    container_name: "movies_db_admin"
+    image: "phpmyadmin"
+    ports:
+      - "8087:80"
+    restart: "always"
+    depends_on:
+      - "movies_db"
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: "movies_db"
+      PMA_PORTS: "3303"
+      PMA_USER: "root"
+      PMA_PASSWORD: "password"
